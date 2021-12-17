@@ -1,0 +1,47 @@
+{% extends 'gongchas/base.html' %}
+
+{% block content %}
+
+<br>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input class="btn btn-dark" type="submit" value="수정하기">
+    </form>
+</div>
+
+{% endblock %}
+
+
+<!--할것-->
+<!--1. 토핑 추가 수정 삭제-->
+<!--2. 장고 공차 이름 예쁘게 하기, 내용 개선(else 같은거...)-->
+<!--3. 전에 했던 공차 고치기 &ndash;&gt; 내용 고치면서 변수명, 함수명 등 예쁘게 고치기 *^▽^**^▽^**^▽^**^▽^*화이팅~!!-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    &lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--    <meta charset="utf-8">-->
+<!--    <title>Title</title>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    &lt;!&ndash;Bootstrap CSS&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+<!--{% if messages %}-->
+<!--{% for message in messages %}-->
+<!--<div class="container-fluid p-0">-->
+<!--    <div class="alert {{ message.tags }} alert-dismissible" role="alert" >-->
+<!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--            <span aria-hidden="True">&times;</span>-->
+<!--        </button>-->
+<!--        {{ message }}-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endfor %}-->
+<!--{% endif %}-->

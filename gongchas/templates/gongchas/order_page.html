@@ -1,0 +1,69 @@
+{% extends 'gongchas/base.html' %}
+
+{% block content %}
+
+<h1>{{ beverage.category.name }}</h1>
+
+<form action="{% url 'gongchas:check' beverage.id %}" method="post">
+    {% csrf_token %}
+
+    <div>
+    음료
+    <br>
+        {{ beverage.name }} {{ beverage.size }}
+    </div>
+    <br>
+
+    <div>
+    당도 (추천 당도 : {{ beverage.rec_sugar }})
+    <br>
+    {% if beverage.rec_sugar == 'fix' %}
+    <input type="radio" name="sugar" value="fix" checked >당도 고정
+    {% else %}
+    <input type="radio" name="sugar" value="0">0
+    <input type="radio" name="sugar" value="30">30
+    <input type="radio" name="sugar" value="50" checked >50
+    <input type="radio" name="sugar" value="70">70
+    <input type="radio" name="sugar" value="100">100
+    {% endif %}
+    </div>
+    <br>
+
+    <div>
+    얼음량 (추천 얼음량 : {{ beverage.rec_ice }})
+    <br>
+    {% if beverage.rec_ice == 'fix' %}
+    <input type="radio" name="ice" value="fix" checked >얼음량 고정
+    {% else %}
+    <input type="radio" name="ice" value="0">없음
+    <input type="radio" name="ice" value="less">less
+    <input type="radio" name="ice" value="regular" checked>regular
+    <input type="radio" name="ice" value="full">full
+    {% endif %}
+    </div>
+    <br>
+
+    <div>
+    옵션
+    <br>
+    <input type="radio" name="option" value="ice" checked>ice
+    <input type="radio" name="option" value="hot">hot
+    </div>
+    <br>
+
+    <div>
+    토핑
+    <br>
+    {% for topp in toppings %}
+        <input type="checkbox" name="topping" value="{{ topp.id }}">{{ topp.name }} {{ topp.size }} (+{{ topp.price }})<br>
+    {% endfor %}
+    </div>
+    <br>
+    <br>
+
+    <div>
+    <input type="submit" value="주문하기">
+    </div>
+</form>
+
+{% endblock %}

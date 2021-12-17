@@ -1,0 +1,57 @@
+{% extends 'gongchas/base.html' %}
+
+{% block content %}
+
+{% if category_list %}
+
+    {% for category in category_list %}
+        <div style="border:1px solid #30c707">
+        <legend>{{ category.name }}</a></legend>
+            <div style="display: flex; flex-wrap: wrap;">
+                {% for bev in category.beverages.all %}
+                    <div style="padding-right:10px; display: flex; flex-wrap: wrap; flex-direction: column; align-items: center; justify-content: center; ">
+                        <img src="{{ bev.menu_image }}" width="140" height="150">
+                        <a href="{% url 'gongchas:order_page' bev.id %}"><span style="color: red">
+                            {{ bev.name }} {{ bev.size }}
+                        </span>
+                        </a>
+                        <div>
+                            {{ bev.price }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+
+<div>
+    <a href="{% url 'gongchas:receipt' %}">
+    영수증 보기
+    </a>
+</div>
+
+<div>
+    <a href="{% url 'gongchas:topping' %}">
+        토핑 추가 수정
+    </a>
+</div>
+
+{% endblock %}
+
+<!--{% if category_list %}-->
+<!--<ul>-->
+<!--    {% for categories in category_list %}-->
+<!--    <li>{{ categories.name }}</li>-->
+<!--        {% for beverages in beverage_list %}-->
+<!--        <li>{{ beverages.name }}   {{ beverages.size }}</li>-->
+<!--        {% endfor %}-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% else %}-->
+<!--<p>No polls are available.</p>-->
+<!--{% endif %}-->

@@ -1,0 +1,23 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+{% if topping_list %}
+
+{% for select in topping_list %}
+    <a href="{% url 'gongchas:topping_detail' select.id %}">
+        {{ select.id }} {{ select.name }} {{ select.size }} {{ select.price }}
+    <br>
+</a>
+{% endfor %}
+
+{% endif %}
+

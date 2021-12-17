@@ -1,0 +1,24 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--2. # [id 음료수이름 총가격 주문시간]-->
+
+
+{% if receipt %}
+
+{% for select in receipt %}
+    <a href="{% url 'gongchas:receipt_detail' select.id %}">
+       {{ select.id }} {{ select.beverage }} {{ select.total }} {{ select.order_date }}
+        <br>
+    </a>
+{% endfor %}
+
+{% endif %}

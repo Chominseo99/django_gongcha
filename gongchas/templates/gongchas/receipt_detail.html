@@ -1,0 +1,22 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    -->
+<!--</body>-->
+<!--</html>-->
+
+
+{{ receipt.id }} {{ receipt.beverage }} {{ receipt.size }}
+{{ receipt.option }} {{ receipt.sugar }} {{ receipt.ice }}
+{{ receipt.topping }} {{ receipt.total }}
+{{ receipt.order_date }}
+
+<div>
+    <a href="{% url 'gongchas:receipt_delete' receipt.id %}">
+        삭제하기
+    </a>
+</div>

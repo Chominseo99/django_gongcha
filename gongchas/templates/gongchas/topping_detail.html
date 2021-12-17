@@ -1,0 +1,20 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+{{ topping.id }} {{ topping.name }} {{ topping.size }}
+{{ topping.price }}
+
+<div>
+    <a href="{% url 'gongchas:topping_update' topping.id %}">
+        수정하기
+    </a>
+</div>
